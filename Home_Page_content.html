@@ -1,0 +1,901 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<link rel="stylesheet" type="text/css" href="content.css" /><script type="text/javascript">
+function isNumeric(value)
+{
+if (value == null || !value.toString().match(/^[-]?\d*\.?\d*$/)) return false;
+return true;
+}
+function Calculate()
+{
+var dev1 = document.form1.deviation.value;
+if (isNumeric(dev1))
+{
+dev = parseInt(dev1,10);
+if (dev>=0 && dev<=30)
+{
+var array1 = document.getElementsByName('value1');
+var array2 = document.getElementsByName('value2');
+var array3 = document.getElementsByName('value3');
+var array4 = document.getElementsByName('value4');
+var array5 = document.getElementsByName('value5');
+for (var i=0;i<array1.length;i++) {
+var str1 = array1[i].innerHTML;
+str1 = str1.substring(1, str1.length-1);
+var lt1 = str1.substring(0, str1.indexOf(')'));
+var rb1 = str1.substring(str1.indexOf('(')+1, str1.length);
+var ltx1 = parseInt(lt1.split(',')[0],10);
+var lty1 = parseInt(lt1.split(',')[1]);
+var rbx1 = parseInt(rb1.split(',')[0]);
+var rby1 = parseInt(rb1.split(',')[1]);
+if (array2.length!=0) {
+if (array2[i].style.color!='#000000') {
+var str2 = array2[i].innerHTML;
+str2 = str2.substring(1, str2.length-1);
+var lt2 = str2.substring(0, str2.indexOf(')'));
+var rb2 = str2.substring(str2.indexOf('(')+1, str2.length);
+var ltx2 = parseInt(lt2.split(',')[0]);
+var lty2 = parseInt(lt2.split(',')[1]);
+var rbx2 = parseInt(rb2.split(',')[0]);
+var rby2 = parseInt(rb2.split(',')[1]);
+if ((Math.abs(ltx1-ltx2)<=dev) && (Math.abs(lty1-lty2)<=dev) && (Math.abs(rbx1-rbx2)<=dev) && (Math.abs(rby1-rby2)<=dev)) {
+array2[i].style.color='#5A8E21';
+} else {
+array2[i].style.color='#D10000';
+}
+}
+}
+if (array3.length!=0) {
+if (array3[i].style.color!='#000000') {
+var str3 = array3[i].innerHTML;
+str3 = str3.substring(1, str3.length-1);
+var lt3 = str3.substring(0, str3.indexOf(')'));
+var rb3 = str3.substring(str3.indexOf('(')+1, str3.length);
+var ltx3 = parseInt(lt3.split(',')[0]);
+var lty3 = parseInt(lt3.split(',')[1]);
+var rbx3 = parseInt(rb3.split(',')[0]);
+var rby3 = parseInt(rb3.split(',')[1]);
+if ((Math.abs(ltx1-ltx3)<=dev) && (Math.abs(lty1-lty3)<=dev) && (Math.abs(rbx1-rbx3)<=dev) && (Math.abs(rby1-rby3)<=dev)) {
+array3[i].style.color='#5A8E21';
+} else {
+array3[i].style.color='#D10000';
+}
+}
+}
+if (array4.length!=0) {
+if (array4[i].style.color!='#000000') {
+var str4 = array4[i].innerHTML;
+str4 = str4.substring(1, str4.length-1);
+var lt4 = str4.substring(0, str4.indexOf(')'));
+var rb4 = str4.substring(str4.indexOf('(')+1, str4.length);
+var ltx4 = parseInt(lt4.split(',')[0]);
+var lty4 = parseInt(lt4.split(',')[1]);
+var rbx4 = parseInt(rb4.split(',')[0]);
+var rby4 = parseInt(rb4.split(',')[1]);
+if ((Math.abs(ltx1-ltx4)<=dev) && (Math.abs(lty1-lty4)<=dev) && (Math.abs(rbx1-rbx4)<=dev) && (Math.abs(rby1-rby4)<=dev)) {
+array4[i].style.color='#5A8E21';
+} else {
+array4[i].style.color='#D10000';
+}
+}
+}
+if (array5.length!=0) {
+if (array5[i].style.color!='#000000') {
+var str5 = array5[i].innerHTML;
+str5 = str5.substring(1, str5.length-1);
+var lt5 = str5.substring(0, str5.indexOf(')'));
+var rb5 = str5.substring(str5.indexOf('(')+1, str5.length);
+var ltx5 = parseInt(lt5.split(',')[0]);
+var lty5 = parseInt(lt5.split(',')[1]);
+var rbx5 = parseInt(rb5.split(',')[0]);
+var rby5 = parseInt(rb5.split(',')[1]);
+if ((Math.abs(ltx1-ltx5)<=dev) && (Math.abs(lty1-lty5)<=dev) && (Math.abs(rbx1-rbx5)<=dev) && (Math.abs(rby1-rby5)<=dev)) {
+array5[i].style.color='#5A8E21';
+} else {
+array5[i].style.color='#D10000';
+}
+}
+}
+}
+var sizearray1 = document.getElementsByName('size1');
+var sizearray2 = document.getElementsByName('size2');
+var sizearray3 = document.getElementsByName('size3');
+var sizearray4 = document.getElementsByName('size4');
+var sizearray5 = document.getElementsByName('size5');
+for (var i=0;i<sizearray1.length;i++) {
+var sizestr1 = sizearray1[i].innerHTML;
+sizestr1 = sizestr1.substring(0, sizestr1.length);
+var width1 = sizestr1.substring(0, sizestr1.indexOf('x')-1);
+var height1 = sizestr1.substring(sizestr1.indexOf('x')+1, sizestr1.length);
+if (sizearray2.length!=0) {
+if (sizearray2[i].style.color!='#000000') {
+var sizestr2 = sizearray2[i].innerHTML;
+sizestr2 = sizestr2.substring(0, sizestr2.length);
+var width2 = sizestr2.substring(0, sizestr2.indexOf('x')-1);
+var height2 = sizestr2.substring(sizestr2.indexOf('x')+1, sizestr2.length);
+if ((Math.abs(width1-width2)<=dev) && (Math.abs(height1-height2)<=dev)) {
+sizearray2[i].style.color='#5A8E21';
+} else {
+sizearray2[i].style.color='#D10000';
+}
+}
+}
+if (sizearray3.length!=0) {
+if (sizearray3[i].style.color!='#000000') {
+var sizestr3 = sizearray3[i].innerHTML;
+sizestr3 = sizestr3.substring(0, sizestr3.length);
+var width3 = sizestr3.substring(0, sizestr3.indexOf('x')-1);
+var height3 = sizestr3.substring(sizestr3.indexOf('x')+1, sizestr3.length);
+if ((Math.abs(width1-width3)<=dev) && (Math.abs(height1-height3)<=dev)) {
+sizearray3[i].style.color='#5A8E21';
+} else {
+sizearray3[i].style.color='#D10000';
+}
+}
+}
+if (sizearray4.length!=0) {
+if (sizearray4[i].style.color!='#000000') {
+var sizestr4 = sizearray4[i].innerHTML;
+sizestr4 = sizestr4.substring(0, sizestr4.length);
+var width4 = sizestr4.substring(0, sizestr4.indexOf('x')-1);
+var height4 = sizestr4.substring(sizestr4.indexOf('x')+1, sizestr4.length);
+if ((Math.abs(width1-width4)<=dev) && (Math.abs(height1-height4)<=dev)) {
+sizearray4[i].style.color='#5A8E21';
+} else {
+sizearray4[i].style.color='#D10000';
+}
+}
+}
+if (sizearray5.length!=0) {
+if (sizearray5[i].style.color!='#000000') {
+var sizestr5 = sizearray5[i].innerHTML;
+sizestr5 = sizestr5.substring(0, sizestr5.length);
+var width5 = sizestr5.substring(0, sizestr5.indexOf('x')-1);
+var height5 = sizestr5.substring(sizestr5.indexOf('x')+1, sizestr5.length);
+if ((Math.abs(width1-width5)<=dev) && (Math.abs(height1-height5)<=dev)) {
+sizearray5[i].style.color='#5A8E21';
+} else {
+sizearray5[i].style.color='#D10000';
+}
+}
+}
+}
+}
+else {alert('please enter deviation between 0 to 30');}
+}
+else {alert('please enter a valid numeric value');}
+}
+function selectTab(ele, table) {
+parent.SCREENSHOT.location='Blank.html';var pre = document.getElementById('selected');
+pre.id='';
+ele.children[0].id='selected';
+document.getElementById('mainTable').style.display='none';
+document.getElementById('inheritanceTable').style.display='none';
+document.getElementById('overlapTable').style.display='none';
+document.getElementById('deviationTable').style.display='none';document.getElementById(table).style.display='block';
+if (document.getElementById('mainTable').style.display=='block') {
+document.getElementById('nav').style.display='none';
+document.getElementById('deviationForm').style.display='block';
+} else {
+document.getElementById('nav').style.display='block';
+document.getElementById('deviationForm').style.display='none';
+}
+}
+function selectBrowser(browser) {
+var intTable = document.getElementById('inheritanceTable');
+var ovTable = document.getElementById('overlapTable');
+var devTable = document.getElementById('deviationTable');
+if (intTable.style.display=='block') {
+var list = intTable.children;
+var str = browser+"_inheritance";
+if (document.getElementById(str)) {
+for (var i=0;i<list.length;i++) {
+if (list[i].id==str) {
+list[i].style.display='block';
+} else {
+list[i].style.display='none';
+}
+}
+}
+} else if (ovTable.style.display=='block') {
+var list = ovTable.children;
+var str = browser+"_overlap";
+for (var i=0;i<list.length;i++) {
+if (list[i].id==str) {
+list[i].style.display='block';
+} else {
+list[i].style.display='none';
+}
+}
+}
+else if (devTable.style.display=='block') {
+var list = devTable.children;
+var str = browser+"_deviation";
+for (var i=0;i<list.length;i++) {
+if (list[i].id==str) {
+list[i].style.display='block';
+} else {
+list[i].style.display='none';
+}
+}
+}
+}
+function sorting(tableName,colName)
+{
+var myTable = document.getElementById(tableName);
+var list = document.getElementsByName(colName);
+for (var i=0;i<list.length;i++) {
+for (var j=i+1;j<list.length;j++) {
+var x1 = parseInt(list[i].innerText, 10);
+var x2 = parseInt(list[j].innerText, 10);
+if (x1<x2) {
+myTable.moveRow(j, i);
+}
+}
+}
+}
+function changeBrowserDiv(){
+parent.SCREENSHOT.location='Blank.html';
+var seleceBox = document.getElementById('clientBrowser');
+var val = seleceBox.options[seleceBox.selectedIndex].value;
+var browsers=new Array();
+for(var i=0;i<browsers.length;i++){
+var browserName = browsers[i];
+if(val === browserName){
+document.getElementById(browserName).style.display = 'block';
+}
+else{
+document.getElementById(browserName).style.display = 'none';
+}
+}
+}
+</script>
+</head>
+<body>
+<form name="form1">
+<div id="nav">
+<ul>
+ <li>
+<a href="#">Browsers</a>
+<ul>
+<li onclick="selectBrowser('Windows 7_GoogleChrome 31.0.1650.57');"><a href="#">Windows 7_GoogleChrome 31.0.1650.57</a></li>
+</ul>
+</li>
+ </ul>
+ </div>
+<div style='float: left'>Home_Page : http://docs.seleniumhq.org/</div><div id="deviationForm" style='float: right; padding-right: 17px'><label>Enter deviation in pixels: </label><input style='width: 30px;' type='text' name='deviation' value="1" />&nbsp;<button type='button' onclick='Calculate()'>Calculate</button></div><br />
+<div id="centeredmenu"><ul><li onclick="selectTab(this, 'mainTable');"><a id="selected" href="#">Main</a></li><li onclick="selectTab(this, 'inheritanceTable');"><a href="#">Defect Inheritance</a></li><li onclick="selectTab(this, 'overlapTable');"><a href="#">Overlapps</a></li><li onclick="selectTab(this, 'deviationTable');"><a href="#">Deviation</a></li></ul></div><div id='content'><div id='mainTable'><table class='tableHeader'>
+<tbody>
+<tr>
+<th style='width: 5%; border: 1px solid #104CAD; word-break: break-all;'>Sl No.</th>
+<th style='width: 10%; border: 1px solid #104CAD; word-break: break-all;'>Element Type</th>
+<th style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Element Name</th>
+<th style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'>Windows 7_GoogleChrome 31.0.1650.57 (Base Browser)<table style='width: 100%;'><tr><td style='width: 50%; border: 1px solid #104CAD;'>Co-ordinates</td><td style='width: 50%; border: 1px solid #104CAD;'>Size</td></tr></table></th>
+</tr>
+</tbody></table>
+<div class='Container'>
+<table border='1' class='tableContent'>
+<tbody>
+
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>1</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>h1</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Browser Automation&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(211,20)(479,28)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>268 x 8</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>2</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Browser Automation&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(211,20)(479,126)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>268 x 106</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>3</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=About&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(1042,64)(1099,88)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>57 x 24</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>4</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Support&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(964,64)(1035,88)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>71 x 24</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>5</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Documentation&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(832,64)(957,88)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>125 x 24</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>6</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Download&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(740,64)(825,88)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>85 x 24</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>7</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Projects&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(659,64)(733,88)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>74 x 24</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>8</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>form</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>id=searchbox_016909259827549404702:hzru01fldsm&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(773,20)(1121,55)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>348 x 35</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>9</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>label</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=search selenium:&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(773,37)(884,50)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>111 x 13</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>10</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Input Type=text</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>id=q&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(889,34)(1065,53)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>176 x 19</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>11</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Input Type=submit</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>id=submit&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(1072,35)(1099,52)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>27 x 17</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>12</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=edit this page&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(661,35)(760,51)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>99 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>13</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>IMAGE</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>src=http://docs.seleniumhq.org/images/big-logo.png
+alt=Selenium Logo
+&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(906,100)(1106,281)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>200 x 181</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>14</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>p</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Selenium is a suite ...&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(906,281)(1116,335)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>210 x 54</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>15</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>strong</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Selenium is a suite ...&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(906,282)(1100,298)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>194 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>16</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>p</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Selenium...&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(906,343)(1116,361)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>210 x 18</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>17</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=many browsers&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(995,369)(1094,385)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>99 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>18</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=operating systems&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(975,385)(1096,401)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>121 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>19</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=programming languages&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(946,419)(1069,451)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>123 x 32</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>20</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=testing frameworks&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(946,435)(1092,467)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>146 x 32</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>21</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Download Selenium&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(956,505)(1096,518)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>140 x 13</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>22</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>h3</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Donate to Selenium&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(931,586)(1091,606)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>160 x 20</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>23</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>h5</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=with PayPal&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(931,618)(1091,634)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>160 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>24</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Input Type=image</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>name=submit&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(931,636)(1078,683)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>147 x 47</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>25</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>IMAGE</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>src=https://www.paypal.com/en_US/i/scr/pixel.gif
+&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(1083,682)(1084,683)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>1 x 1</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>26</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>h2</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=What is Selenium?&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(211,95)(812,122)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>601 x 27</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>27</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>p</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Selenium automates b...&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(211,126)(812,198)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>601 x 72</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>28</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>i</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Selenium automates b...&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(211,127)(413,143)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>202 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>29</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>p</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Selenium has the sup...&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(211,206)(812,260)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>601 x 54</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>30</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>h2</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Which part of Seleni...&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(211,299)(812,326)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>601 x 27</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>31</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Table</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>id=choice&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(211,330)(811,700)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>600 x 370</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>32</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>tbody</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=If you want to
+creat...&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(211,330)(811,700)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>600 x 370</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>33</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Table Column</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=If you want to
+creat...&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(211,332)(811,698)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>600 x 366</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>34</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Table Cell</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=If you want to
+creat...&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(213,332)(435,698)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>222 x 366</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>35</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>href=http://docs.seleniumhq.org/projects/ide/
+&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(292,384)(357,400)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>65 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>36</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>IMAGE</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>src=http://docs.seleniumhq.org/images/selenium-ide-logo.png
+alt=Selenium IDE Logo
+&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(292,333)(356,397)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>64 x 64</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>37</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>p</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Then you want to use...&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(214,553)(433,625)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>219 x 72</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>38</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Selenium IDE&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(214,554)(424,588)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>210 x 34</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>39</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Table Cell</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=If you want to
+creat...&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(437,332)(809,698)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>372 x 366</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>40</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>href=http://docs.seleniumhq.org/projects/webdriver/
+&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(559,384)(623,400)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>64 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>41</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>IMAGE</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>src=http://docs.seleniumhq.org/images/selenium-logo.png
+alt=Selenium Logo
+&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(559,333)(623,397)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>64 x 64</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>42</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>href=http://docs.seleniumhq.org/projects/webdriver/
+&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(623,384)(687,400)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>64 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>43</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>IMAGE</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>src=http://docs.seleniumhq.org/images/selenium-grid-logo.png
+alt=Selenium Grid Logo
+&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(623,333)(687,397)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>64 x 64</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>44</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>p</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Then you want to use...&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(438,537)(808,591)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>370 x 54</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>45</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Selenium WebDriver&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(590,538)(720,554)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>130 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>46</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>p</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Selenium WebDriver i...&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(438,599)(808,689)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>370 x 90</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>47</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Selenium Remote Cont...&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(438,600)(762,634)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>324 x 34</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>48</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>h2</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Sponsors&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(211,739)(812,766)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>601 x 27</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>49</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>p</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=The Selenium project...&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(211,769)(812,787)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>601 x 18</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>50</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>href=http://saucelabs.com/
+&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(211,842)(371,858)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>160 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>51</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>IMAGE</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>src=http://docs.seleniumhq.org/images/sponsors/saucelabs.jpg
+alt=Sauce Labs
+&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(211,795)(371,855)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>160 x 60</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>52</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>h2</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Selenium News&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(211,894)(812,921)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>601 x 27</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>53</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Selenium blog&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(583,925)(673,941)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>90 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>54</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=RSS feed&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(238,941)(298,957)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>60 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>55</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>em</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Don't forget to foll...&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(211,957)(480,973)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>269 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>56</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=follow us&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(315,957)(373,973)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>58 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>57</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Selenium Hangout 3 R...&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(251,986)(427,1002)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>176 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>58</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>i</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Fri, 01 Nov 2013&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(444,986)(554,1002)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>110 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>59</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Selenium Hangout 2 R...&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(251,1005)(427,1021)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>176 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>60</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>i</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Wed, 09 Oct 2013&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(444,1005)(564,1021)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>120 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>61</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Mobile WebDriver&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(251,1023)(364,1039)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>113 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>62</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>i</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Wed, 28 Aug 2013&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(381,1023)(501,1039)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>120 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>63</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=The Road to Selenium 3&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(251,1042)(408,1058)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>157 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>64</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>i</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Wed, 28 Aug 2013&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(425,1042)(545,1058)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>120 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>65</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=A Smattering of Sele...&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(251,1061)(457,1077)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>206 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>66</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>i</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Sun, 18 Aug 2013&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(474,1061)(590,1077)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>116 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>67</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=A Smattering of Sele...&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(251,1079)(457,1095)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>206 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>68</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>i</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Mon, 12 Aug 2013&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(474,1079)(593,1095)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>119 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>69</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=The World?s Best Sel...&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(251,1098)(483,1114)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>232 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>70</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>i</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Fri, 09 Aug 2013&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(500,1098)(609,1114)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>109 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>71</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=A Smattering of Sele...&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(251,1116)(457,1132)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>206 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>72</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>i</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Sun, 28 Jul 2013&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(474,1116)(583,1132)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>109 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>73</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=A Smattering of Sele...&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(251,1135)(457,1151)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>206 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>74</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>i</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Mon, 22 Jul 2013&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(474,1135)(586,1151)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>112 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>75</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=A Smattering of Sele...&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(251,1154)(457,1170)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>206 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>76</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>i</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Mon, 22 Jul 2013&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(474,1154)(586,1170)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>112 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>77</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Selenium Projects&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(211,1236)(342,1252)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>131 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>78</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Selenium IDE&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(211,1252)(289,1265)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>78 x 13</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>79</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Selenium Remote Cont...&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(211,1265)(358,1278)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>147 x 13</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>80</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Selenium WebDriver&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(211,1278)(329,1291)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>118 x 13</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>81</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Selenium Grid&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(211,1291)(292,1304)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>81 x 13</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>82</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Documentation&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(378,1236)(489,1252)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>111 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>83</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Online version&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(378,1252)(460,1265)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>82 x 13</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>84</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Wiki&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(378,1265)(402,1278)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>24 x 13</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>85</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Selenium API&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(378,1278)(455,1291)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>77 x 13</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>86</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Support&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(509,1236)(566,1252)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>57 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>87</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=User Group&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(509,1252)(574,1265)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>65 x 13</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>88</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Bug Tracker&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(509,1265)(579,1278)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>70 x 13</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>89</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Commercial Support&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(509,1278)(627,1291)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>118 x 13</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>90</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=IRC&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(509,1291)(531,1304)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>22 x 13</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>91</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=About Selenium&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(647,1236)(761,1252)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>114 x 16</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>92</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=News/Blogs&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(647,1252)(713,1265)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>66 x 13</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>93</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Events&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(647,1265)(685,1278)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>38 x 13</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>94</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Who made Selenium&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(647,1278)(765,1291)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>118 x 13</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>95</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Roadmap&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(647,1291)(701,1304)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>54 x 13</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>96</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Text=Getting Involved&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(647,1304)(742,1317)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>95 x 13</a></td></tr></table>
+</tr>
+<tr>
+<td style='width: 5%; border: 1px solid #104CAD;word-break: break-all;'>97</td>
+<td style='width: 10%;border: 1px solid #104CAD; word-break: break-all;'>IMAGE</td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>id=footerLogo&nbsp;</td>
+<td style='width: 70%; border: 1px solid #104CAD; word-break: break-all;'><table style='width: 100%;'><tr><td style='width: 50%; border-right: 1px solid #104CAD;'><a name='value1' style='text-decoration: none'>(993,1236)(1121,1271)</a></td><td style='width: 50%;'><a name='size1' style='text-decoration: none'>128 x 35</a></td></tr></table>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id='inheritanceTable' style="display: none"></div>
+<div id="overlapTable" style="display: none"><div id='Windows 7_GoogleChrome 31.0.1650.57_overlap'><table class='tableHeader'><tbody><tr><th style='width: 50%; border: 1px solid #104CAD; word-break: break-all;' colspan='4'>Windows 7_GoogleChrome 31.0.1650.57_Element 1</th><th style='width: 50%; border: 1px solid #104CAD; word-break: break-all;' colspan='4'>Windows 7_GoogleChrome 31.0.1650.57_Element 2</th></tr><tr><th style='width: 10%; border: 1px solid #104CAD; word-break: break-all;'>Sl No.</th><th style='width: 10%; border: 1px solid #104CAD; word-break: break-all;'>Element Type</th><th style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Co-ordinates</th><th style='width: 15%; border: 1px solid #104CAD;'>Size</th><th style='width: 10%; border: 1px solid #104CAD; word-break: break-all;'>Sl No.</th><th style='width: 10%; border: 1px solid #104CAD; word-break: break-all;'>Element Type</th><th style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'>Co-ordinates</th><th style='width: 15%; border: 1px solid #104CAD;'>Size</th></tr></tbody></table><div class='Container'><table border='1' class='tableContent'><tr><td style='width: 10%; border: 1px solid #104CAD; word-break: break-all;'>20</td><td style='width: 10%; border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td><td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'><a style='color: #D10000' href='ScreenShot.html?urlB=../Screenshots\Home_Page\Windows 7_GoogleChrome 31.0.1650.57/19.png&urlO=../Screenshots\Home_Page\Windows 7_GoogleChrome 31.0.1650.57/18.png&basebrowserversion=Windows 7_GoogleChrome 31.0.1650.57&currbrowserversion=Windows 7_GoogleChrome 31.0.1650.57' target='SCREENSHOT'>(946,435)</a></td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'><a style='color: #D10000' href='ScreenShot.html?urlB=../Screenshots\Home_Page\Windows 7_GoogleChrome 31.0.1650.57/19.png&urlO=../Screenshots\Home_Page\Windows 7_GoogleChrome 31.0.1650.57/18.png&basebrowserversion=Windows 7_GoogleChrome 31.0.1650.57&currbrowserversion=Windows 7_GoogleChrome 31.0.1650.57' target='SCREENSHOT'>(146,32)</a></td>
+<td style='width: 10%; border: 1px solid #104CAD; word-break: break-all;'>19</td><td style='width: 10%; border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td><td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'><a style='color: #D10000' href='ScreenShot.html?urlB=../Screenshots\Home_Page\Windows 7_GoogleChrome 31.0.1650.57/19.png&urlO=../Screenshots\Home_Page\Windows 7_GoogleChrome 31.0.1650.57/18.png&basebrowserversion=Windows 7_GoogleChrome 31.0.1650.57&currbrowserversion=Windows 7_GoogleChrome 31.0.1650.57' target='SCREENSHOT'>(946,419)</a></td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'><a style='color: #D10000' href='ScreenShot.html?urlB=../Screenshots\Home_Page\Windows 7_GoogleChrome 31.0.1650.57/19.png&urlO=../Screenshots\Home_Page\Windows 7_GoogleChrome 31.0.1650.57/18.png&basebrowserversion=Windows 7_GoogleChrome 31.0.1650.57&currbrowserversion=Windows 7_GoogleChrome 31.0.1650.57' target='SCREENSHOT'>123 x 32</a></td>
+</tr><tr><td style='width: 10%; border: 1px solid #104CAD; word-break: break-all;'>26</td><td style='width: 10%; border: 1px solid #104CAD; word-break: break-all;'>h2</td><td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'><a style='color: #D10000' href='ScreenShot.html?urlB=../Screenshots\Home_Page\Windows 7_GoogleChrome 31.0.1650.57/25.png&urlO=../Screenshots\Home_Page\Windows 7_GoogleChrome 31.0.1650.57/1.png&basebrowserversion=Windows 7_GoogleChrome 31.0.1650.57&currbrowserversion=Windows 7_GoogleChrome 31.0.1650.57' target='SCREENSHOT'>(211,95)</a></td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'><a style='color: #D10000' href='ScreenShot.html?urlB=../Screenshots\Home_Page\Windows 7_GoogleChrome 31.0.1650.57/25.png&urlO=../Screenshots\Home_Page\Windows 7_GoogleChrome 31.0.1650.57/1.png&basebrowserversion=Windows 7_GoogleChrome 31.0.1650.57&currbrowserversion=Windows 7_GoogleChrome 31.0.1650.57' target='SCREENSHOT'>(601,27)</a></td>
+<td style='width: 10%; border: 1px solid #104CAD; word-break: break-all;'>2</td><td style='width: 10%; border: 1px solid #104CAD; word-break: break-all;'>Hyper Link</td><td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'><a style='color: #D10000' href='ScreenShot.html?urlB=../Screenshots\Home_Page\Windows 7_GoogleChrome 31.0.1650.57/25.png&urlO=../Screenshots\Home_Page\Windows 7_GoogleChrome 31.0.1650.57/1.png&basebrowserversion=Windows 7_GoogleChrome 31.0.1650.57&currbrowserversion=Windows 7_GoogleChrome 31.0.1650.57' target='SCREENSHOT'>(211,20)</a></td>
+<td style='width: 15%; border: 1px solid #104CAD; word-break: break-all;'><a style='color: #D10000' href='ScreenShot.html?urlB=../Screenshots\Home_Page\Windows 7_GoogleChrome 31.0.1650.57/25.png&urlO=../Screenshots\Home_Page\Windows 7_GoogleChrome 31.0.1650.57/1.png&basebrowserversion=Windows 7_GoogleChrome 31.0.1650.57&currbrowserversion=Windows 7_GoogleChrome 31.0.1650.57' target='SCREENSHOT'>268 x 106</a></td>
+</tr></table></div>
+</div>
+</div>
+<div id='deviationTable' style="display: none"></div></div>
+</form>
+</body>
+</html>
